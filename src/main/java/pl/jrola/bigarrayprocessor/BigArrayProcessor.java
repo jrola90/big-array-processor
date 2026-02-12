@@ -15,7 +15,7 @@ public class BigArrayProcessor {
      *
      * @return A list of integers that survived the processing.
      */
-    public List<Integer> process(int[] input) {
+    public static List<Integer> process(int[] input) {
         if (input == null || input.length == 0) {
             return Collections.emptyList();
         }
@@ -51,7 +51,7 @@ public class BigArrayProcessor {
      * Converts the filtered primitive values into the final List.
      * Boxing happens only here, and only for elements that weren't removed.
      */
-    private List<Integer> collectResults(int[] values, BinaryIndexedTree binaryIndexedTree, int totalAdded, int activeCount) {
+    private static List<Integer> collectResults(int[] values, BinaryIndexedTree binaryIndexedTree, int totalAdded, int activeCount) {
         List<Integer> result = new ArrayList<>(activeCount);
         int previousPrefixSum = 0;
 

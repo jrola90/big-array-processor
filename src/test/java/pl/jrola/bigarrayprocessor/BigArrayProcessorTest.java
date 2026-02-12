@@ -8,12 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BigArrayProcessorTest {
 
-    private final BigArrayProcessor processor = new BigArrayProcessor();
-
     @Test
     void should_ProcessFewElements() {
         int[] input = {-10, -20, -30, 2, -40};
-        List<Integer> result = processor.process(input);
+        List<Integer> result = BigArrayProcessor.process(input);
 
         assertEquals(List.of(-10, -30, -40), result);
     }
@@ -21,7 +19,7 @@ class BigArrayProcessorTest {
     @Test
     void should_NotRemoveElementsOutOfBound() {
         int[] input = {-1, -2, 5, -3};
-        List<Integer> result = processor.process(input);
+        List<Integer> result = BigArrayProcessor.process(input);
 
         assertEquals(List.of(-1, -2, -3), result);
     }
@@ -31,19 +29,19 @@ class BigArrayProcessorTest {
         // 0 should be ignored
         // 1 should remove the first element
         int[] input = {-5, 0, -10, 1};
-        List<Integer> result = processor.process(input);
+        List<Integer> result = BigArrayProcessor.process(input);
 
         assertEquals(List.of(-10), result);
     }
 
     @Test
     void when_InputIsNull_should_ReturnEmptyList() {
-        assertTrue(processor.process(null).isEmpty());
+        assertTrue(BigArrayProcessor.process(null).isEmpty());
     }
 
     @Test
     void when_InputIsEmpty_should_ReturnEmptyList() {
-        assertTrue(processor.process(new int[]{}).isEmpty());
+        assertTrue(BigArrayProcessor.process(new int[]{}).isEmpty());
     }
 
     @Test
@@ -57,7 +55,7 @@ class BigArrayProcessorTest {
         }
 
         long start = System.currentTimeMillis();
-        List<Integer> result = processor.process(input);
+        List<Integer> result = BigArrayProcessor.process(input);
         long end = System.currentTimeMillis();
 
         // Should process 10M elements in a less than 1 second
